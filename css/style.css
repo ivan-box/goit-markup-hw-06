@@ -235,6 +235,8 @@ body {
   background-color: var(--accent-color);
 }
 
+/* modal hero \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -251,9 +253,9 @@ body {
 
   opacity: 1;
   visibility: visible;
-  transition-property: opacity;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: initial;
+
+  transition: opacity var(--fast-transition), visibility var(--fast-transition);
 }
 
 .backdrop.is-hidden {
@@ -263,29 +265,262 @@ body {
 }
 
 .modal {
+  display: inline-block;
   position: absolute;
   width: 528px;
-  height: 581px;
+  min-height: 581px;
+  padding: 40px;
+  /* opacity: 0; */
   background-color: var(--accent-text-color);
 
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  transition-property: transform;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 6px;
+  transition: transform var(--fast-transition);
 }
+
+/* .hero-button:checked + .backdrop.is-hidden > .modal {
+  opacity: 1;
+} */
 
 .hero-button-close {
   position: absolute;
   top: 8px;
   right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 32px;
+  height: 32px;
+
   visibility: visible;
   pointer-events: visible;
-  /* opacity: 0; */
+  cursor: pointer;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: transparent;
 }
 
-/* our advantages */
+.btn-close-icon {
+  transition: fill var(--fast-transition);
+}
+
+.hero-button-close:hover .btn-close-icon {
+  fill: var(--accent-color);
+}
+
+.modal-title {
+  display: block;
+  margin-bottom: 12px;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.user-name,
+.user-phone,
+.user-mail,
+.user-comment {
+  margin-bottom: 4px;
+
+  user-select: none;
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: var(--secondary-text-color);
+}
+
+.user-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin-bottom: 10px;
+}
+
+.user-input {
+  width: 448px;
+  height: 40px;
+
+  cursor: pointer;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  outline: none;
+
+  transition: border var(--fast-transition);
+}
+
+.user-input:hover,
+.user-input:focus,
+.user-input:checked {
+  border: 1px solid var(--accent-color);
+}
+
+/* .user-input:focus .user-input {
+  border: 1px solid var(--accent-color);
+} */
+
+.user-input:hover + .modal-icon-input,
+.user-input:focus + .modal-icon-input {
+  fill: var(--accent-color);
+}
+
+input[placeholder='Enter text'] {
+  padding-left: 42px;
+}
+
+.user-input::placeholder {
+  opacity: 0;
+}
+
+.user-name-label,
+.user-phone-label,
+.user-mail-label {
+  position: relative;
+}
+.modal-icon-input {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+
+  transition: fill var(--fast-transition);
+}
+
+.user-comment-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-input-checkbox.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.modal-icon-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 15px;
+  outline: 2px solid var(--primary-text-color);
+  border-radius: 2px;
+
+  transition: fill var(--fast-transition);
+}
+
+.modal-icon-check {
+  fill: transparent;
+
+  transition: background-color var(--fast-transition), fill var(--fast-transition),
+    scale var(--fast-transition);
+}
+
+.user-input-checkbox:checked + .modal-icon-checkbox > .modal-icon-check {
+  fill: var(--accent-text-color);
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  transform: scale(1.2);
+}
+
+.user-input-checkbox:checked + .modal-icon-checkbox {
+  outline: 2px solid var(--accent-text-color);
+}
+
+.user-checkbox {
+  margin-left: 7px;
+
+  font-size: 14px;
+  line-height: 1.71;
+  text-align: left;
+
+  user-select: none;
+
+  color: var(--secondary-text-color);
+}
+
+.user-terms {
+  color: var(--accent-color);
+}
+
+.user-input-textarea {
+  width: 448px;
+  height: 120px;
+  margin-bottom: 10px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  outline: none;
+
+  transition: border var(--fast-transition);
+}
+
+.user-input-textarea:hover,
+.user-input-textarea:focus {
+  border: 1px solid var(--accent-color);
+}
+
+.user-input-textarea::placeholder {
+  color: rgba(117, 117, 117, 0.5);
+}
+
+textarea[placeholder='Enter text'] {
+  padding-top: 12px;
+  padding-left: 16px;
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+}
+
+.user-checkbox-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+/* .strong-user-checkbox {
+  text-decoration: underline;
+  color: var(--accent-color);
+} */
+
+.modal-send-btn {
+  width: 200px;
+  padding: 10px 55px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+
+  color: var(--accent-text-color);
+  background-color: var(--accent-color);
+  border: 1px solid transparent;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+/* our advantages//////////////////////////////////////////////// */
 
 .wrapper-icon {
   display: flex;
@@ -390,7 +625,7 @@ body {
   background-color: rgba(47, 48, 58, 0.8);
 }
 
-/* our team */
+/* our team \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 .team {
   background-color: var(--secondary-bg-color);
@@ -470,7 +705,7 @@ body {
   transition: fill var(--fast-transition);
 }
 
-/* Regular Customers */
+/* Regular Customers \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 
 .customers-list {
   display: flex;
@@ -527,7 +762,8 @@ body {
   margin-right: 70px;
 }
 
-.subscribe {
+.subscribe,
+.newsletter {
   margin-top: 10px;
   margin-bottom: 20px;
 
@@ -615,7 +851,66 @@ body {
   color: var(--accent-color);
 }
 
-/* portfolio */
+.mailing {
+  margin-left: 93px;
+}
+
+.btn-subscribe {
+  position: relative;
+  width: 200px;
+  padding-top: 10px;
+  padding-right: 29px;
+  padding-bottom: 10px;
+  /* padding-left: 29px; */
+
+  margin-left: 12px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+
+  color: var(--accent-text-color);
+  background-color: var(--accent-color);
+  border: 1px solid transparent;
+
+  border-radius: 4px;
+}
+
+.footer-subscribe-icon {
+  position: absolute;
+  top: 25%;
+  right: 28px;
+  display: flex;
+  justify-content: center;
+
+  fill: var(--accent-text-color);
+}
+
+.subscribe-text {
+  margin-right: 10px;
+}
+
+.mailing-input {
+  width: 358px;
+  height: 50px;
+
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  outline: none;
+}
+
+input[placeholder='E-mail'] {
+  padding: 15px;
+  color: var(--accent-text-color);
+
+  cursor: pointer;
+}
+
+/* portfolio \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 .visually-hidden {
   position: absolute;

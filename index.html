@@ -15,6 +15,8 @@
 </head>
 
 <body>
+
+  <!-- header \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
   <header class="item-header">
     <div class="container wrapper">
       <a class="logo-header list" href="./index.html"><span class="accent-color">Web</span>Studio</a>
@@ -51,7 +53,7 @@
   </header>
   <main>
 
-    <!-- hero -->
+    <!-- hero \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
 
     <section class="hero section">
       <div class="hero-container container">
@@ -59,17 +61,72 @@
           Effective solutions <br />
           for your business
         </h1>
-        <button class="hero-button" type="button" data-modal-open>Order service</button>
+        <button class="hero-button" type="button" data-modal-open>
+          Order service</button>
+
+        <!-- modal\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
 
         <div class="backdrop is-hidden" data-modal>
-          <button class="hero-button" type="button" data-modal-open>Order service</button>
           <div class="modal">
-            <div class=""></div>
             <button class="hero-button-close" data-modal-close>
-              <svg class="button-close-icon" width="30px" height="30px">
+              <svg class="btn-close-icon" width="18px" height="18px">
                 <use href="./image/icons.svg#close">
                 </use>
               </svg></button>
+            <strong class="modal-title">Leave your details, we will call you back</strong>
+            <form class="modal-form" name="name">
+
+              <label class="user-name-label user-label">
+                <span class="user-name">Name</span>
+                <input class="user-input" type="text" name="user-name" placeholder="Enter text">
+                <svg class="modal-icon-input" width="18px" height="18px">
+                  <use href="./image/icons.svg#person">
+                  </use>
+                </svg>
+              </label>
+
+
+              <label class="user-phone-label user-label">
+                <span class="user-phone">Telephone</span>
+                <input class="user-input" type="tel" name="user-phone" placeholder="Enter text">
+                <svg class="modal-icon-input" width="18px" height="18px">
+                  <use href="./image/icons.svg#phone">
+                  </use>
+                </svg>
+              </label>
+
+
+              <label class="user-mail-label user-label">
+                <span class="user-mail">E-mail</span>
+                <input class="user-input" type="email" name="user-mail" placeholder="Enter text">
+                <svg class="modal-icon-input" width="18px" height="18px">
+                  <use href="./image/icons.svg#email">
+                  </use>
+                </svg>
+              </label>
+
+
+              <label class="user-comment-label">
+                <span class="user-comment">Comment</span>
+                <textarea class="user-input-textarea" name="user-comment" placeholder="Enter text"></textarea>
+              </label>
+
+              <label class="user-checkbox-label">
+                <input class="user-input-checkbox visually-hidden" type="checkbox" name="user-checkbox">
+                <span class="modal-icon-checkbox">
+                  <svg class="modal-icon-check" width="16px" height="15px">
+                    <use href="./image/icons.svg#check">
+                    </use>
+                  </svg></span>
+
+                <span class="user-checkbox">I agree to the newsletter and accept <a class="user-terms" href="">The terms
+                    of the
+                    contract</a></span>
+              </label>
+
+              <button class="modal-send-btn" type="submit">Send</button>
+
+            </form>
           </div>
         </div>
 
@@ -77,7 +134,7 @@
 
     </section>
 
-    <!-- our advantages -->
+    <!-- our advantages \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
 
     <section class="section advantages">
       <div class="container">
@@ -140,7 +197,7 @@
       </div>
     </section>
 
-    <!-- what we do -->
+    <!-- what we do \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
 
     <section class="section trade">
       <div class="container">
@@ -164,7 +221,7 @@
       </div>
     </section>
 
-    <!-- our team -->
+    <!-- our team \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
 
     <section class="section team">
       <div class="container">
@@ -399,7 +456,7 @@
           </address>
         </div>
         <div>
-          <h3 class="subscribe">Subscribe</h3>
+          <h3 class="subscribe">Follow</h3>
           <div class="social-network-icons">
             <ul class="social-network-icons list">
               <li>
@@ -432,6 +489,19 @@
                   </svg></a>
               </li>
             </ul>
+          </div>
+        </div>
+        <div class="mailing">
+          <h3 class="newsletter">Subscribe to newsletter</h3>
+          <div>
+            <label for="">
+              <input class="mailing-input" type="email" placeholder="E-mail"></label>
+            <button class="btn-subscribe">
+              <span class="subscribe-text">Subscribe</span><svg class="footer-subscribe-icon" width="24px"
+                height="24px">
+                <use href="./image/icons.svg#send">
+                </use>
+              </svg></button>
           </div>
         </div>
   </footer>
