@@ -23,7 +23,7 @@ ul {
   --border-color: #ececec;
   --secondary-border-color: #afb1b8;
 
-  --fast-transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --fast-transition: 1250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -412,35 +412,36 @@ input[placeholder='Enter text'] {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 
 .modal-icon-checkbox {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
+
   width: 16px;
   height: 15px;
-  outline: 2px solid var(--primary-text-color);
-  border-radius: 2px;
 
-  transition: fill var(--fast-transition);
+  border: 2px solid var(--primary-text-color);
+  border-radius: 3px;
+
+  transition: border-color var(--fast-transition), background-color var(--fast-transition);
 }
 
 .modal-icon-check {
+  flex-shrink: 0;
   fill: transparent;
 
-  transition: background-color var(--fast-transition), fill var(--fast-transition),
-    scale var(--fast-transition);
+  transition: background-color var(--fast-transition), fill var(--fast-transition);
 }
 
 .user-input-checkbox:checked + .modal-icon-checkbox > .modal-icon-check {
   fill: var(--accent-text-color);
-  background-color: var(--accent-color);
-  border-radius: 2px;
-  transform: scale(1.2);
 }
 
 .user-input-checkbox:checked + .modal-icon-checkbox {
-  outline: 2px solid var(--accent-text-color);
+  border-color: transparent;
+  background-color: var(--accent-color);
 }
 
 .user-checkbox {
@@ -467,6 +468,7 @@ input[placeholder='Enter text'] {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   outline: none;
+  resize: none;
 
   transition: border var(--fast-transition);
 }
@@ -475,6 +477,8 @@ input[placeholder='Enter text'] {
 .user-input-textarea:focus {
   border: 1px solid var(--accent-color);
 }
+
+/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 
 .user-input-textarea::placeholder {
   color: rgba(117, 117, 117, 0.5);
@@ -756,6 +760,7 @@ textarea[placeholder='Enter text'] {
 
 .footer-container {
   display: flex;
+  justify-content: space-between;
 }
 
 .footer-container-logo {
